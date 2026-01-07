@@ -1,12 +1,16 @@
-import { About, Contact, Hero, Projects, Skills } from './components';
-import { MyNavbar } from './components';
-import 'bootstrap/dist/css/bootstrap.min.css';
-
-
+import {
+  About,
+  Contact,
+  Hero,
+  Projects,
+  Skills,
+  GitHubActivity,
+  InstagramFeed,
+} from "./components";
+import { MyNavbar } from "./components";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
-  
-
   return (
     <>
       <MyNavbar />
@@ -14,9 +18,11 @@ function App() {
       <About />
       <Projects />
       <Skills />
+      <GitHubActivity />
+      <InstagramFeed />
       <Contact />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

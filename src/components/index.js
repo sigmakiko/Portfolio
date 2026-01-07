@@ -4,5 +4,16 @@ import About from "./About/About";
 import Projects from "./Projects/Projects";
 import Skills from "./Skills/Skills";
 import Contact from "./Contact/Contact";
+import GitHubActivity from "./GitHubActivity/GitHubActivity";
+import InstagramFeed from "./InstagramFeed/InstagramFeed";
 
-export { Hero, MyNavbar, About, Projects, Skills, Contact };
+export {
+  Hero,
+  MyNavbar,
+  About,
+  Projects,
+  Skills,
+  Contact,
+  GitHubActivity,
+  InstagramFeed,
+};

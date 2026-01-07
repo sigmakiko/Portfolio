@@ -1,0 +1,23 @@
+.skillCard {
+    background-color: hsla(0,0%,100%,.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 15px;
+    color: white;
+    padding: 10px 0;
+    transition: .3s;
+}
+@media (min-width: 992px) {
+    .skillCard {
+        width: 20% !important;
+    }
+}
+.skillCard:hover {
+    background-color: hsl(0deg 0.32% 44.88% / 10%);
+}
+.skillCard svg {
+    height: 150px;
+    width: 50%;
+}

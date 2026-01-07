@@ -1,0 +1,70 @@
+.about {
+    background: linear-gradient(to bottom, #381a5f, #040407);
+    padding-top: 50px;
+    overflow: hidden;
+    padding-bottom: 50px;
+}
+.about h2 {
+    font-size: 50px;
+    color: white;
+    text-align: center;
+    margin-bottom: 50px;
+    font-weight: bold;
+}
+
+
+.about .card {
+    display: flex;
+    padding: 20px;
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0.75rem; 
+    overflow: hidden;
+    gap: 5px;
+}
+.card * {
+    z-index: 2;
+}
+
+.animatedGradient {
+    position: absolute;
+    inset: 0; 
+    background-image: linear-gradient(to right, #fb923c, #6b21a8, #7c2d12);
+    opacity: 0.3;
+    animation: gradientXY 6s ease infinite;
+    z-index: 1;
+}
+  
+@keyframes gradientXY {
+0% {
+    background-position: 0% 50%;
+}
+50% {
+    background-position: 100% 50%;
+}
+100% {
+    background-position: 0% 50%;
+}
+}
+  
+.animatedGradient {
+background-size: 200% 200%;
+}
+
+.about .card img {
+    width: 75px;
+}
+.about .card h3 {
+    color: hsla(0, 0%, 100%, .8);
+    font-weight: bold;
+}
+.about .card p {
+    color: hsla(0, 0%, 100%, .8);
+}
+@media (max-width: 1200px) {
+    .about .card p {
+        font-size: .8em;
+    }
+}

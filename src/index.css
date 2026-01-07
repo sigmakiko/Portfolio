@@ -1,0 +1,26 @@
+/* Projects */
+.slick {
+    display: flex !important;
+    gap: 15px;
+    justify-content: center;
+    /* margin-top: 100px; */
+    position: absolute;
+    right: 25px;
+    bottom: 80px;
+
+}
+
+ul .slick-active {
+    transform: scale(1.15);
+}
+
+.slick li::marker {
+    color: transparent;
+}
+
+
+.slick-slider {
+    position:unset !important;
+}
+
+

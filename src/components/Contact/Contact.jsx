@@ -1,9 +1,7 @@
-import React, { useState } from "react";
-
+﻿import React, { useState } from "react";
 import styles from "./styles.module.css";
-
-import phoneImg from "../../assets/imgs/phone.png";
-import mailImg from "../../assets/imgs/mail.png";
+import phoneImg from "../../assets/imgs/phone.webp";
+import mailImg from "../../assets/imgs/mail.webp";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -21,50 +19,60 @@ const Contact = () => {
   const handleSendWhatsApp = (e) => {
     e.preventDefault();
     const { firstName, lastName, email, phone, message } = formData;
-
     const fullMessage = `Hello, my name is ${firstName} ${lastName}%0AEmail: ${email}%0APhone: ${phone}%0A%0A${message}`;
-    const whatsappUrl = `https://wa.me/201012938153?text=${encodeURIComponent(fullMessage)}`;
-
+    const whatsappUrl = `https://wa.me/201012938153?text=${encodeURIComponent(
+      fullMessage
+    )}`;
     window.open(whatsappUrl, "_blank");
   };
 
   return (
-    <section className="container-fluid mt-3 text-light" id="contact">
-      <div className="row g-4 px-4 py-5 rounded" style={{background: "linear-gradient(to bottom, #040407, #381a5f)"}}>
-        {/* Contact Info */}
-        <div className="col-lg-6 d-flex justify-content-center align-items-center">
+    <section
+      className={`${styles.contact} container-fluid text-light`}
+      id="contact"
+    >
+      <div className={`${styles.contactWrapper} row g-4 mx-3`}>
+        <div
+          className={`${styles.contactInfo} col-lg-6 d-flex justify-content-center align-items-center`}
+        >
           <ul className="list-unstyled">
             <li className="d-flex align-items-center mb-4">
               <img
                 src={phoneImg}
                 alt="phone"
                 className="me-3"
-                style={{ height: "110px", width: "auto" }}
+                style={{ height: "80px", width: "auto" }}
               />
-              <p className="fs-4 mb-0">+20 101 293 8153</p>
+              <p className="fs-4 mb-0" style={{ color: "#f1f1f1" }}>
+                +20 101 293 8153
+              </p>
             </li>
             <li className="d-flex align-items-center">
               <img
                 src={mailImg}
                 alt="mail"
                 className="me-3"
-                style={{ height: "110px", width: "auto" }}
+                style={{ height: "80px", width: "auto" }}
               />
-              <p className="fs-4 mb-0">ashrafkareem2004@gmail.com</p>
+              <p className="fs-4 mb-0" style={{ color: "#f1f1f1" }}>
+                ashrafkareem2004@gmail.com
+              </p>
             </li>
           </ul>
         </div>
-
-        {/* WhatsApp Form */}
-        <div className="col-lg-6 p-4 rounded">
-          <h2 className="display-5 text-warning fw-bold mb-3">Let’s connect</h2>
-          <p className="mb-4">Send me a message and let's schedule a call on WhatsApp!</p>
+        <div className={`${styles.contactForm} col-lg-6 p-4`}>
+          <h2 className="display-5 fw-bold mb-3" style={{ color: "#f1f1f1" }}>
+            Let's <span className={styles.gradientSpan}>connect</span>
+          </h2>
+          <p className="mb-4" style={{ color: "#c5c6c7" }}>
+            Send me a message and let's schedule a call on WhatsApp!
+          </p>
           <form onSubmit={handleSendWhatsApp}>
             <div className="row g-3">
               <div className="col-md-6">
                 <input
                   type="text"
-                  className={`${styles.contactInput} form-control bg-dark text-light border-warning`}
+                  className={`${styles.contactInput} form-control`}
                   placeholder="First Name"
                   name="firstName"
                   value={formData.firstName}
@@ -75,7 +83,7 @@ const Contact = () => {
               <div className="col-md-6">
                 <input
                   type="text"
-                  className={`${styles.contactInput} form-control bg-dark text-light border-warning`}
+                  className={`${styles.contactInput} form-control`}
                   placeholder="Last Name"
                   name="lastName"
                   value={formData.lastName}
@@ -86,7 +94,7 @@ const Contact = () => {
               <div className="col-md-6">
                 <input
                   type="email"
-                  className={`${styles.contactInput} form-control bg-dark text-light border-warning`}
+                  className={`${styles.contactInput} form-control`}
                   placeholder="Email"
                   name="email"
                   value={formData.email}
@@ -97,7 +105,7 @@ const Contact = () => {
               <div className="col-md-6">
                 <input
                   type="tel"
-                  className={`${styles.contactInput} form-control bg-dark text-light border-warning`}
+                  className={`${styles.contactInput} form-control`}
                   placeholder="Phone"
                   name="phone"
                   value={formData.phone}
@@ -107,7 +115,7 @@ const Contact = () => {
             </div>
             <div className="mt-3">
               <textarea
-                className={`${styles.contactInput} form-control bg-dark text-light border-warning`}
+                className={`${styles.contactInput} form-control`}
                 rows="4"
                 placeholder="Your Message"
                 name="message"
@@ -117,7 +125,10 @@ const Contact = () => {
               ></textarea>
             </div>
             <div className="mt-4">
-              <button type="submit" className="btn btn-success w-100 fs-5 fw-semibold">
+              <button
+                type="submit"
+                className={`${styles.submitBtn} btn w-100 fs-5 fw-semibold`}
+              >
                 Send via WhatsApp
               </button>
             </div>

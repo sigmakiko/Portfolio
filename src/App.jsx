@@ -5,7 +5,7 @@ import {
   Projects,
   Skills,
   GitHubActivity,
-  InstagramFeed,
+  KikoCommunityHub,
 } from "./components";
 import { MyNavbar } from "./components";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -17,9 +17,10 @@ function App() {
       <Hero />
       <About />
       <Projects />
-      <Skills />
       <GitHubActivity />
-      <InstagramFeed />
+      <KikoCommunityHub />
+      <Skills />
+
       <Contact />
     </>
   );

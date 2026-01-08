@@ -1,26 +1,130 @@
-/* Projects */
-.slick {
-    display: flex !important;
-    gap: 15px;
-    justify-content: center;
-    /* margin-top: 100px; */
-    position: absolute;
-    right: 25px;
-    bottom: 80px;
+/* ========================================
+   GLOBAL DESIGN SYSTEM - Soft Dark Theme
+   ======================================== */
 
+:root {
+  /* Background Colors */
+  --bg-main: #121212;
+  --bg-card: rgba(255, 255, 255, 0.02);
+  --bg-card-hover: rgba(255, 255, 255, 0.04);
+  --bg-glass: rgba(255, 255, 255, 0.03);
+
+  /* Border Colors */
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-hover: rgba(255, 255, 255, 0.15);
+  --border-accent: rgba(0, 255, 255, 0.3);
+
+  /* Text Colors */
+  --text-primary: #f1f1f1;
+  --text-secondary: #c5c6c7;
+  --text-muted: rgba(255, 255, 255, 0.6);
+
+  /* Accent Colors */
+  --accent-primary: #00ffff;
+  --accent-secondary: #8a2be2;
+  --accent-gradient: linear-gradient(135deg, #00ffff 0%, #8a2be2 100%);
+
+  /* Design Tokens */
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --blur-amount: 10px;
+
+  /* Typography */
+  --font-main: "Geist Sans", "Inter", sans-serif;
+  --font-weight-bold: 800;
+  --font-weight-semibold: 600;
+  --font-weight-normal: 400;
+
+  /* Shadows */
+  --shadow-glow: 0 0 30px rgba(0, 255, 255, 0.15);
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Global Styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main) !important;
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-main);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+}
+
+p {
+  font-family: var(--font-main);
+  font-weight: var(--font-weight-normal);
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+a {
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: var(--accent-primary);
+}
+
+/* Utility Classes */
+.bento-block {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(var(--blur-amount));
+  transition: all 0.3s ease;
+}
+
+.bento-block:hover {
+  border-color: var(--border-hover);
+  background: var(--bg-card-hover);
+}
+
+.gradient-text {
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.accent-glow {
+  box-shadow: var(--shadow-glow);
+}
+
+/* Projects Slider */
+.slick {
+  display: flex !important;
+  gap: 15px;
+  justify-content: center;
+  position: absolute;
+  right: 25px;
+  bottom: 80px;
 }
 
 ul .slick-active {
-    transform: scale(1.15);
+  transform: scale(1.15);
 }
 
 .slick li::marker {
-    color: transparent;
+  color: transparent;
 }
-
 
 .slick-slider {
-    position:unset !important;
+  position: unset !important;
 }
-
-

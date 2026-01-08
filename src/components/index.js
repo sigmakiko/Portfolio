@@ -5,7 +5,7 @@ import Projects from "./Projects/Projects";
 import Skills from "./Skills/Skills";
 import Contact from "./Contact/Contact";
 import GitHubActivity from "./GitHubActivity/GitHubActivity";
-import InstagramFeed from "./InstagramFeed/InstagramFeed";
+import KikoCommunityHub from "./KikoCommunityHub/KikoCommunityHub";
 
 export {
   Hero,
@@ -15,5 +15,5 @@ export {
   Skills,
   Contact,
   GitHubActivity,
-  InstagramFeed,
+  KikoCommunityHub,
 };

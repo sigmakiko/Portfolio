@@ -1,23 +1,78 @@
+/* Skills Section - Soft Dark / Bento Grid Theme */
+.skills {
+  background-color: #121212;
+  padding: 80px 0;
+  position: relative;
+}
+
+.skills::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(0, 255, 255, 0.04) 0%,
+    transparent 60%
+  );
+  pointer-events: none;
+}
+
+.skillsContainer {
+  position: relative;
+  z-index: 1;
+  margin-right: 0 !important;
+}
+
 .skillCard {
-    background-color: hsla(0,0%,100%,.1);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: column;
-    border-radius: 15px;
-    color: white;
-    padding: 10px 0;
-    transition: .3s;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 20px;
+  color: #f1f1f1;
+  padding: 24px 16px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
 }
+
 @media (min-width: 992px) {
-    .skillCard {
-        width: 20% !important;
-    }
+  .skillCard {
+    width: 20% !important;
+  }
 }
+
 .skillCard:hover {
-    background-color: hsl(0deg 0.32% 44.88% / 10%);
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(0, 255, 255, 0.3);
+  transform: translateY(-8px);
+  box-shadow: 0 10px 30px rgba(0, 255, 255, 0.15);
 }
+
 .skillCard svg {
-    height: 150px;
-    width: 50%;
+  height: 100px;
+  width: 100px;
+  opacity: 0.9;
+  transition: all 0.3s ease;
+}
+
+.skillCard:hover svg {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.skillCard span {
+  margin-top: 12px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #c5c6c7;
+  transition: color 0.3s ease;
+}
+
+.skillCard:hover span {
+  color: #00ffff;
 }

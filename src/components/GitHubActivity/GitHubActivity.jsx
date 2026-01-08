@@ -5,6 +5,8 @@ import { useInView } from "react-intersection-observer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faCodeBranch, faStar } from "@fortawesome/free-solid-svg-icons";
+import { getRepos } from "./getRepos";
+import { getCommits } from "./getCommits";
 import styles from "./styles.module.css";
 
 const GitHubActivity = () => {
@@ -23,36 +25,7 @@ const GitHubActivity = () => {
         setError(null);
 
         // Fetch top 4 repositories
-        const reposResponse = await fetch(
-          "https://api.github.com/users/sigmakiko/repos?sort=updated&per_page=4",
-          {
-            headers: {
-              Accept: "application/vnd.github.v3+json",
-            },
-          }
-        );
-
-        if (!reposResponse.ok) {
-          const errorData = await reposResponse.json().catch(() => ({}));
-          console.error("GitHub API Error:", errorData);
-
-          // Check if it's a rate limit error
-          if (
-            reposResponse.status === 403 &&
-            errorData.message?.includes("rate limit")
-          ) {
-            throw new Error(
-              "GitHub API rate limit exceeded. Please try again later."
-            );
-          }
-
-          throw new Error(
-            `Failed to fetch repositories: ${reposResponse.status} ${reposResponse.statusText}`
-          );
-        }
-
-        const reposData = await reposResponse.json();
-        console.log("Fetched repos:", reposData);
+        const reposData = await getRepos();
 
         if (!Array.isArray(reposData) || reposData.length === 0) {
           console.warn("No repositories found");
@@ -62,96 +35,7 @@ const GitHubActivity = () => {
           return;
         }
 
-        // Fetch latest commit for each repo (across all branches)
-        const reposWithCommits = await Promise.all(
-          reposData.map(async (repo) => {
-            try {
-              // First, fetch all branches for the repo
-              const branchesResponse = await fetch(
-                `https://api.github.com/repos/${repo.owner.login}/${repo.name}/branches`
-              );
-
-              if (branchesResponse.ok) {
-                const branches = await branchesResponse.json();
-
-                if (branches.length === 0) {
-                  return { ...repo, latestCommit: null };
-                }
-
-                // Fetch the latest commit from each branch
-                const branchCommits = await Promise.all(
-                  branches.map(async (branch) => {
-                    try {
-                      const commitResponse = await fetch(
-                        `https://api.github.com/repos/${repo.owner.login}/${repo.name}/commits/${branch.commit.sha}`
-                      );
-                      if (commitResponse.ok) {
-                        const commitData = await commitResponse.json();
-                        return {
-                          ...commitData,
-                          branchName: branch.name,
-                        };
-                      }
-                      return null;
-                    } catch (error) {
-                      console.error(
-                        `Error fetching commit for branch ${branch.name}:`,
-                        error
-                      );
-                      return null;
-                    }
-                  })
-                );
-
-                // Filter out null values and find the most recent commit
-                const validCommits = branchCommits.filter((c) => c !== null);
-
-                if (validCommits.length === 0) {
-                  return { ...repo, latestCommit: null };
-                }
-
-                // Find the most recent commit
-                let latestCommit = validCommits[0];
-                for (let i = 1; i < validCommits.length; i++) {
-                  const latestDate = new Date(latestCommit.commit.author.date);
-                  const currentDate = new Date(
-                    validCommits[i].commit.author.date
-                  );
-                  if (currentDate > latestDate) {
-                    latestCommit = validCommits[i];
-                  }
-                }
-
-                return {
-                  ...repo,
-                  latestCommit: latestCommit,
-                };
-              }
-
-              // Fallback to default branch if branches API fails
-              const commitsResponse = await fetch(
-                `https://api.github.com/repos/${repo.owner.login}/${repo.name}/commits?per_page=1`
-              );
-              if (commitsResponse.ok) {
-                const commitsData = await commitsResponse.json();
-                const commitWithBranch = commitsData[0]
-                  ? {
-                      ...commitsData[0],
-                      branchName: repo.default_branch,
-                    }
-                  : null;
-                return {
-                  ...repo,
-                  latestCommit: commitWithBranch,
-                };
-              }
-              return { ...repo, latestCommit: null };
-            } catch (error) {
-              console.error(`Error processing repo ${repo.name}:`, error);
-              return { ...repo, latestCommit: null };
-            }
-          })
-        );
+        const reposWithCommits = await getCommits(reposData);
 
         setRepos(reposWithCommits);
         setError(null);
@@ -197,21 +81,44 @@ const GitHubActivity = () => {
     return (
       <section className={styles.githubSection} id="github">
         <Container>
-          <Alert variant="warning" className="my-5">
-            <Alert.Heading>
-              ⚠️ GitHub Activity Temporarily Unavailable
-            </Alert.Heading>
-            <p>{error}</p>
-            {error.includes("rate limit") && (
-              <p className="mb-0">
-                <small>
-                  💡 Tip: GitHub API has a limit of 60 requests per hour for
-                  unauthenticated users. Please wait a few minutes and refresh
-                  the page.
-                </small>
-              </p>
-            )}
-          </Alert>
+          <motion.div className="text-center mb-5">
+            <h2 className={styles.sectionTitle}>
+              <FontAwesomeIcon icon={faGithub} className="me-3" />
+              GitHub Activity{" "}
+              <span className={styles.gradientText}>& Projects</span>
+            </h2>
+            <p className={styles.sectionSubtitle}>
+              Latest repositories and contributions
+            </p>
+          </motion.div>
+          <div className={styles.githubErrorCard}>
+            <div className={styles.githubErrorHeader}>
+              <FontAwesomeIcon
+                icon={faGithub}
+                className={styles.githubErrorIcon}
+              />
+              <span className={styles.githubErrorTitle}>
+                GitHub Activity Error
+              </span>
+            </div>
+            <div className={styles.githubErrorBody}>
+              <p className={styles.githubErrorMessage}>{error}</p>
+              {error.includes("rate limit") && (
+                <p className={styles.githubErrorTip}>
+                  <FontAwesomeIcon
+                    icon={faCodeBranch}
+                    className={styles.githubErrorBranchIcon}
+                  />
+                  <span>
+                    GitHub API has a limit of 60 requests/hour for
+                    unauthenticated users.
+                    <br />
+                    Please wait a few minutes and refresh the page.
+                  </span>
+                </p>
+              )}
+            </div>
+          </div>
         </Container>
       </section>
     );
@@ -228,7 +135,8 @@ const GitHubActivity = () => {
         >
           <h2 className={styles.sectionTitle}>
             <FontAwesomeIcon icon={faGithub} className="me-3" />
-            GitHub Activity & Projects
+            GitHub Activity{" "}
+            <span className={styles.gradientText}>& Projects</span>
           </h2>
           <p className={styles.sectionSubtitle}>
             Latest repositories and contributions

@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "title": "Ecommerce With React.js",
+    "img": "/proj1.webp",
+    "video": "https://res.cloudinary.com/drggjngdz/video/upload/q_auto,f_auto/proj1Vid_jvmwvp.mp4",
+    "description": "A modern e-commerce frontend built with React, Redux Toolkit, TypeScript, React Bootstrap, and Vite. It features product listings, cart functionality, form handling with Redux Forms, and mock backend integration using JSON-Server. Includes skeleton loaders for improved UX and strong typing with TypeScript for scalable development.",
+    "technologies": [
+      "React",
+      "Redux Toolkit",
+      "TypeScript",
+      "React Bootstrap",
+      "Vite",
+      "React Forms",
+      "JSON-Server"
+    ],
+    "links": {
+      "github": "https://github.com/kikogamed/React_Ecommerce",
+      "liveDemo": "https://kikogamed.github.io/React_Ecommerce/"
+    }
+  },
+  {
+    "id": 2,
+    "title": "Moody",
+    "img": "/proj2.webp",
+    "video": "https://res.cloudinary.com/drggjngdz/video/upload/q_auto,f_auto/proj2Vid_ww7v0u.mp4",
+    "description": "Moody is a private mood-tracking web app built with JavaScript, Bootstrap, CSS, and HTML, using Firebase Authentication and Firestore as the backend. Authenticated users can privately post and describe their moods, which are securely stored and only visible to the logged-in user. Firestore Security Rules are implemented to ensure complete privacy and restrict access to each user’s data.",
+    "technologies": ["JavaScript", "Firebase", "Bootstrap", "HTML", "CSS"],
+    "links": {
+      "github": "https://github.com/kikogamed/Moody",
+      "liveDemo": "https://kikogamed.github.io/Moody/"
+    }
+  },
+  {
+    "id": 3,
+    "title": "Ecommerce With JS and PHP",
+    "img": "/proj3.webp",
+    "video": "https://res.cloudinary.com/drggjngdz/video/upload/q_auto,f_auto/proj3Vid_oqtfxr.mp4",
+    "description": "A responsive eCommerce website for electronics built with PHP, MySQL, HTML/CSS, and JavaScript. Features include user login, product categories, admin panel, shopping cart, and order management. Ideal for learning full-stack web development using core PHP and relational databases.",
+    "technologies": ["JavaScript", "PHP", "MySql", "Bootstrap", "CSS", "HTML"],
+    "links": {
+      "github": "https://github.com/kikogamed/php-electronics-store",
+      "liveDemo": "http://kikogamed.free.nf/"
+    }
+  },
+  {
+    "id": 4,
+    "title": "Ecommerce With Python and Django",
+    "img": "/proj4.webp",
+    "video": "https://res.cloudinary.com/drggjngdz/video/upload/q_auto,f_auto/proj4Vid_vlerbj.mp4",
+    "description": "A full-featured eCommerce website built with Python and Django. It includes user authentication, product management, and a shopping cart. This project is a great way to learn about web development with Python and Django.",
+    "technologies": ["Python", "Django", "HTML", "CSS"],
+    "links": {
+      "github": "https://app.netlify.com/teams/kikogamed/sites?page=1",
+      "liveDemo": "https://github.com/kikogamed/JavaScript_Apps"
+    }
+  }
+]

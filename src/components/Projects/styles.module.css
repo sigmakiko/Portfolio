@@ -1,131 +1,300 @@
+﻿/* Projects Section - Horizontal Scroll with Pinning Effect */
 .projects {
-    background: linear-gradient(to bottom, #040407, #381a5f);
-    padding: 60px 0;
-    position: relative;
-    overflow-x: hidden;
+  height: 300vh;
+  background-color: #121212;
+  position: relative;
+  padding: 80px 0;
 }
-  
-.projects  .sliderContainer {
-    position: relative;
-    padding: 200px 20px;
-    margin-top: -50px;
+
+.projects::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+      circle at 70% 20%,
+      rgba(0, 255, 255, 0.04) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 30% 80%,
+      rgba(138, 43, 226, 0.04) 0%,
+      transparent 50%
+    );
+  pointer-events: none;
+  z-index: 0;
 }
-  
-.projects  .card {
-    display: flex !important;
-    gap: 30px;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px;
-    flex-wrap: wrap;
-    background-color: rgba(255, 255, 255, 0.02);
-    border-radius: 20px;
-    backdrop-filter: blur(5px);
+
+/* Sticky Wrapper - Pins to viewport */
+.stickyWrapper {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px 0;
 }
-  
-.projects .cardImg img {
-    width: 100%;
-    max-width: 600px;
-    height: 320px;
-    object-fit: cover;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
-    transition: transform 0.3s ease;
+
+/* Section Header */
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 0 20px;
+  position: relative;
+  z-index: 10;
 }
-  
-.projects .cardImg img:hover {
-    transform: scale(1.03);
+
+.sectionTitle {
+  font-family: "Geist Sans", "Inter", sans-serif;
+  font-size: 50px;
+  font-weight: 800;
+  color: #f1f1f1;
+  margin-bottom: 10px;
 }
-  
-.projects .cardTxt {
-    max-width: 600px;
+
+.gradientText {
+  background: linear-gradient(135deg, #00ffff 0%, #8a2be2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
-  
-.projects .card h3 {
-    font-size: 64px;
-    color: rgba(255, 255, 255, 0.7);
-    margin: 0;
+
+.sectionSubtitle {
+  font-family: "Geist Sans", "Inter", sans-serif;
+  font-size: 1rem;
+  color: #c5c6c7;
+  font-weight: 400;
 }
-  
-.projects  .card h4 {
-    font-size: 28px;
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 15px;
+
+/* Horizontal Container */
+.horizontalContainer {
+  display: flex;
+  gap: 40px;
+  padding: 0 100px;
+  width: max-content;
 }
-  
-.projects .description {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 16px;
-    line-height: 1.5;
-    margin-bottom: 15px;
+
+/* Project Card - Bento Grid Style */
+.projectCard {
+  flex-shrink: 0;
+  width: 500px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+  position: relative;
+  transition: all 0.3s ease;
 }
-  
-.projects  .skills {
-    color: rgb(152, 180, 206);
-    font-size: 16px;
-    font-weight: 500;
-    margin-bottom: 15px;
+
+.projectCard:hover {
+  border-color: rgba(0, 255, 255, 0.2);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
 }
-  
-.projects  .card a {
-    display: inline-block;
-    margin-right: 15px;
-    color: rgba(255, 255, 255, 0.7);
-    text-decoration: none;
-    padding: 10px 15px;
-    border: 1px solid transparent;
-    border-radius: 6px;
-    background: rgba(255, 255, 255, 0.05);
-    transition: all 0.3s ease;
+
+/* Project Number */
+.projectNumber {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-family: "Geist Sans", "Inter", sans-serif;
+  font-size: 4rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.05);
+  z-index: 1;
+  line-height: 1;
 }
-  
-.projects  .card a:hover {
-    color: white;
-    border-color: white;
+
+/* Image Wrapper */
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
 }
-  
-.projects  .videoContainer {
-    margin-top: 50px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 90%;
-    /* z-index: -1; */
-    overflow: hidden;
+
+.projectImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
 }
-  
-.projects .videoContainer video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block; 
+
+.projectCard:hover .projectImage {
+  transform: scale(1.08);
 }
-  
-.projects .scale {
-    position: absolute;
-    inset: 0; 
-    background-color: black;
-    opacity: 0.7;
-    /* z-index: -1; */
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 255, 255, 0.8) 0%,
+    rgba(138, 43, 226, 0.8) 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
-  
-.projects .pagingImg {
-    width: 65px !important;
-    height: 65px !important;
-    border-radius: 10px;
-    object-fit: cover;
-    cursor: pointer;
-    transition: 0.3s;
+
+.projectCard:hover .imageOverlay {
+  opacity: 1;
 }
-  
-.projects .pagingImg:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+
+.viewProject {
+  font-family: "Geist Sans", "Inter", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background-color: transparent;
+  padding: 12px 24px;
+  border: 2px solid #fff;
+  border-radius: 30px;
+  transform: translateY(20px);
+  transition: transform 0.5s ease-out;
 }
-  
-.projects .paggingLink {
-    display: block;
+.viewProject:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }
-  
+
+.projectCard:hover .viewProject {
+  transform: translateY(0);
+}
+
+/* Project Content */
+.projectContent {
+  padding: 28px;
+}
+
+.projectTitle {
+  font-family: "Geist Sans", "Inter", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #f1f1f1;
+  margin-bottom: 12px;
+}
+
+.projectDescription {
+  font-family: "Geist Sans", "Inter", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #c5c6c7;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Tech Stack */
+.techStack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.techBadge {
+  font-family: "Geist Sans", "Inter", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #00ffff;
+  background: rgba(0, 255, 255, 0.1);
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(0, 255, 255, 0.2);
+}
+
+/* Project Links */
+.projectLinks {
+  display: flex;
+  gap: 12px;
+}
+
+.linkButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Geist Sans", "Inter", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #f1f1f1;
+  padding: 10px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  background: transparent;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.linkButton:hover {
+  color: #00ffff;
+  border-color: #00ffff;
+  background: rgba(0, 255, 255, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 255, 255, 0.2);
+}
+
+/* Progress Bar */
+.progressContainer {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progressBar {
+  height: 100%;
+  background: linear-gradient(90deg, #00ffff, #8a2be2);
+  transform-origin: left;
+  border-radius: 2px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .projects {
+    height: 400vh;
+  }
+
+  .sectionTitle {
+    font-size: 36px;
+  }
+
+  .horizontalContainer {
+    padding: 0 40px;
+    gap: 24px;
+  }
+
+  .projectCard {
+    width: 320px;
+  }
+
+  .imageWrapper {
+    height: 200px;
+  }
+
+  .projectContent {
+    padding: 20px;
+  }
+
+  .projectTitle {
+    font-size: 1.2rem;
+  }
+
+  .projectNumber {
+    font-size: 3rem;
+  }
+}

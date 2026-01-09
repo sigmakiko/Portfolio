@@ -26,29 +26,6 @@
   pointer-events: none;
 }
 
-.about h2 {
-  font-size: 50px;
-  color: #f1f1f1;
-  text-align: center;
-  margin-bottom: 50px;
-  font-weight: 800;
-}
-
-.sectionTitle {
-  font-family: "Geist Sans", "Inter", sans-serif;
-  font-size: 50px;
-  font-weight: 800;
-  color: #f1f1f1;
-  margin-bottom: 10px;
-}
-
-.gradientText {
-  background: linear-gradient(135deg, #00ffff 0%, #8a2be2 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
 .cards {
   position: relative;
   z-index: 1;

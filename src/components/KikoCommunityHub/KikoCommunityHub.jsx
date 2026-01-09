@@ -5,6 +5,7 @@ import { useInView } from "react-intersection-observer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram, faTiktok } from "@fortawesome/free-brands-svg-icons";
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
+import SectionHeader from "../SectionHeader/SectionHeader";
 import styles from "./styles.module.css";
 
 const KikoCommunityHub = () => {

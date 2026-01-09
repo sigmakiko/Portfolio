@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
+import SectionHeader from "../SectionHeader/SectionHeader";
 import projectsData from "./projectsData.json";
 import styles from "./styles.module.css";
 
@@ -19,11 +20,12 @@ const Projects = () => {
   return (
     <section ref={containerRef} className={styles.projects} id="projects">
       <div className={styles.stickyWrapper}>
-        <div className={styles.sectionHeader}>
-          <h2 className={styles.sectionTitle}>
-            Selected <span className={styles.gradientText}>Projects</span>
-          </h2>
-          <p className={styles.sectionSubtitle}>Scroll to explore my work</p>
+        <div style={{ marginBottom: "-2rem" }}>
+          <SectionHeader
+            title="Selected"
+            highlightText="Projects"
+            subtitle="Scroll to explore my work"
+          />
         </div>
 
         <motion.div className={styles.horizontalContainer} style={{ x }}>

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-import { FlipHead } from "../../framerAnimations";
+import SectionHeader from "../SectionHeader/SectionHeader";
 
 import educationImg from "../../assets/imgs/book.webp";
 import journeyImg from "../../assets/imgs/finance.webp";
@@ -14,9 +14,11 @@ const About = () => {
   return (
     <section className={`${styles.about}`} id="about">
       <Container>
-        <h2 className={styles.sectionTitle}>
-          About <span className={styles.gradientText}>Me</span>
-        </h2>
+        <SectionHeader
+          title="About"
+          highlightText="Me"
+          subtitle="Get to know more about my background and skills"
+        />
         <div className={`${styles.cards} row gap-3`}>
           <motion.div
             className={`${styles.card} col-xl-7 col-lg-12 container`}

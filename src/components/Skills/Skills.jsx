@@ -1,5 +1,6 @@
 import styles from "./styles.module.css";
 import { motion } from "framer-motion";
+import SectionHeader from "../SectionHeader/SectionHeader";
 
 const data = [
   {
@@ -149,26 +150,11 @@ const data = [
 const Skills = () => {
   return (
     <section id="skills" className={styles.skills}>
-      <h2
-        style={{
-          textAlign: "center",
-          color: "#f1f1f1",
-          fontSize: "50px",
-          marginBottom: "50px",
-          fontWeight: 800,
-        }}
-      >
-        What I{" "}
-        <span
-          style={{
-            background: "linear-gradient(135deg, #00ffff 0%, #8a2be2 100%)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-          }}
-        >
-          Do
-        </span>
-      </h2>
+      <SectionHeader
+        title="What I"
+        highlightText="Do"
+        subtitle="Technologies and tools I work with"
+      />
 
       <div
         className={`${styles.skillsContainer} row d-flex justify-content-center gap-3`}

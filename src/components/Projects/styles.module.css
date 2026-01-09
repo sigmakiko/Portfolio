@@ -39,37 +39,6 @@
   padding: 40px 0;
 }
 
-/* Section Header */
-.sectionHeader {
-  text-align: center;
-  margin-bottom: 40px;
-  padding: 0 20px;
-  position: relative;
-  z-index: 10;
-}
-
-.sectionTitle {
-  font-family: "Geist Sans", "Inter", sans-serif;
-  font-size: 50px;
-  font-weight: 800;
-  color: #f1f1f1;
-  margin-bottom: 10px;
-}
-
-.gradientText {
-  background: linear-gradient(135deg, #00ffff 0%, #8a2be2 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.sectionSubtitle {
-  font-family: "Geist Sans", "Inter", sans-serif;
-  font-size: 1rem;
-  color: #c5c6c7;
-  font-weight: 400;
-}
-
 /* Horizontal Container */
 .horizontalContainer {
   display: flex;

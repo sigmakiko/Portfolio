@@ -1,5 +1,6 @@
 ﻿import React, { useState } from "react";
 import styles from "./styles.module.css";
+import SectionHeader from "../SectionHeader/SectionHeader";
 import phoneImg from "../../assets/imgs/phone.webp";
 import mailImg from "../../assets/imgs/mail.webp";
 
@@ -31,6 +32,11 @@ const Contact = () => {
       className={`${styles.contact} container-fluid text-light`}
       id="contact"
     >
+      <SectionHeader
+        title="Get in"
+        highlightText="Touch"
+        subtitle="Let's build something amazing together"
+      />
       <div className={`${styles.contactWrapper} row g-4 mx-3`}>
         <div
           className={`${styles.contactInfo} col-lg-6 d-flex justify-content-center align-items-center`}
@@ -43,9 +49,13 @@ const Contact = () => {
                 className="me-3"
                 style={{ height: "80px", width: "auto" }}
               />
-              <p className="fs-4 mb-0" style={{ color: "#f1f1f1" }}>
+              <a
+                className="fs-4 mb-0"
+                style={{ color: "#f1f1f1", textDecoration: "none" }}
+                href="tel:+201012938153"
+              >
                 +20 101 293 8153
-              </p>
+              </a>
             </li>
             <li className="d-flex align-items-center">
               <img
@@ -54,9 +64,17 @@ const Contact = () => {
                 className="me-3"
                 style={{ height: "80px", width: "auto" }}
               />
-              <p className="fs-4 mb-0" style={{ color: "#f1f1f1" }}>
+              <a
+                className="fs-4 mb-0"
+                style={{
+                  color: "#f1f1f1",
+                  textDecoration: "none",
+                  marginLeft: "-3rem",
+                }}
+                href="mailto:ashrafkareem2004@gmail.com"
+              >
                 ashrafkareem2004@gmail.com
-              </p>
+              </a>
             </li>
           </ul>
         </div>

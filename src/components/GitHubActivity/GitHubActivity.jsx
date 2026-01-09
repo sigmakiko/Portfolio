@@ -5,6 +5,7 @@ import { useInView } from "react-intersection-observer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faCodeBranch, faStar } from "@fortawesome/free-solid-svg-icons";
+import SectionHeader from "../SectionHeader/SectionHeader";
 import { getRepos } from "./getRepos";
 import { getCommits } from "./getCommits";
 import styles from "./styles.module.css";
@@ -81,16 +82,11 @@ const GitHubActivity = () => {
     return (
       <section className={styles.githubSection} id="github">
         <Container>
-          <motion.div className="text-center mb-5">
-            <h2 className={styles.sectionTitle}>
-              <FontAwesomeIcon icon={faGithub} className="me-3" />
-              GitHub Activity{" "}
-              <span className={styles.gradientText}>& Projects</span>
-            </h2>
-            <p className={styles.sectionSubtitle}>
-              Latest repositories and contributions
-            </p>
-          </motion.div>
+          <SectionHeader
+            title="GitHub Activity"
+            highlightText="& Projects"
+            subtitle="Latest repositories and contributions"
+          />
           <div className={styles.githubErrorCard}>
             <div className={styles.githubErrorHeader}>
               <FontAwesomeIcon
@@ -127,21 +123,11 @@ const GitHubActivity = () => {
   return (
     <section className={styles.githubSection} id="github" ref={ref}>
       <Container>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-5"
-        >
-          <h2 className={styles.sectionTitle}>
-            <FontAwesomeIcon icon={faGithub} className="me-3" />
-            GitHub Activity{" "}
-            <span className={styles.gradientText}>& Projects</span>
-          </h2>
-          <p className={styles.sectionSubtitle}>
-            Latest repositories and contributions
-          </p>
-        </motion.div>
+        <SectionHeader
+          title="GitHub Activity"
+          highlightText="& Projects"
+          subtitle="Latest repositories and contributions"
+        />
 
         <Row className="g-4">
           {repos.map((repo, index) => (

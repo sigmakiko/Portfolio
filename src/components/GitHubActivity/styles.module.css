@@ -83,37 +83,25 @@
   pointer-events: none;
 }
 
-.sectionTitle {
-  text-align: center;
-  color: #f1f1f1;
-  font-size: 50px;
-  font-weight: 800;
-}
-
-.gradientText {
-  background: linear-gradient(135deg, #00ffff 0%, #8a2be2 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  display: inline-block;
-}
-
-.sectionSubtitle {
-  font-size: 1.1rem;
-  color: #a0a0a0;
-  margin-bottom: 3rem;
-}
-
 .repoCard {
   background: rgba(15, 15, 30, 0.95) !important;
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 16px;
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
-  height: 100%;
+  height: 420px; /* Fixed height for all cards */
   position: relative;
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+}
+
+.repoCard .card-body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1.25rem;
 }
 
 .repoCard::before {
@@ -171,7 +159,7 @@
   color: #c0c0c0;
   font-size: 0.9rem;
   margin-bottom: 1rem;
-  min-height: 40px;
+  height: 44px; /* Fixed height for 2 lines */
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -210,6 +198,8 @@
   padding: 12px;
   border-radius: 8px;
   border: 1px solid rgba(0, 255, 255, 0.2);
+  margin-top: auto; /* Push to bottom */
+  flex-shrink: 0; /* Prevent shrinking */
 }
 
 .commitHeader {
@@ -285,6 +275,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  max-width: 100%; /* Ensure it respects container width */
 }
 
 .commitDate {
@@ -304,5 +295,15 @@
 
   .sectionSubtitle {
     font-size: 1rem;
+  }
+
+  .repoCard {
+    height: 380px; /* Slightly shorter on mobile */
+  }
+}
+
+@media (max-width: 576px) {
+  .repoCard {
+    height: 360px; /* Even shorter on small screens */
   }
 }

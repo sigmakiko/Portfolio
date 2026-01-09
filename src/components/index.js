@@ -6,6 +6,7 @@ import Skills from "./Skills/Skills";
 import Contact from "./Contact/Contact";
 import GitHubActivity from "./GitHubActivity/GitHubActivity";
 import KikoCommunityHub from "./KikoCommunityHub/KikoCommunityHub";
+import SectionHeader from "./SectionHeader/SectionHeader";
 
 export {
   Hero,
@@ -16,4 +17,5 @@ export {
   Contact,
   GitHubActivity,
   KikoCommunityHub,
+  SectionHeader,
 };

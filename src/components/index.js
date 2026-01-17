@@ -7,6 +7,8 @@ import Contact from "./Contact/Contact";
 import GitHubActivity from "./GitHubActivity/GitHubActivity";
 import KikoCommunityHub from "./KikoCommunityHub/KikoCommunityHub";
 import SectionHeader from "./SectionHeader/SectionHeader";
+import Preloader from "./Preloader/Preloader";
+import FootballGame from "./FootballGame/FootballGame";
 
 export {
   Hero,
@@ -18,4 +20,6 @@ export {
   GitHubActivity,
   KikoCommunityHub,
   SectionHeader,
+  Preloader,
+  FootballGame,
 };

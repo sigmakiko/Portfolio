@@ -118,3 +118,31 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
+@media (max-width: 592px) {
+  .contactInfo li {
+    padding: 10px;
+  }
+
+  .contactInfo li img {
+    height: 50px !important;
+  }
+
+  .contactInfo li a {
+    font-size: 15px !important;
+  }
+}
+
+@media (max-width: 415px) {
+  .contactInfo li {
+    padding: 10px;
+  }
+
+  .contactInfo li img {
+    height: 30px !important;
+  }
+
+  .contactInfo li a {
+    font-size: 12px !important;
+  }
+}

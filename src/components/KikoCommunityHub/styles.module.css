@@ -452,3 +452,10 @@
     padding-bottom: 120%;
   }
 }
+
+@media (max-width: 576px) {
+  .statCard {
+    flex: 1 1 calc(30% - 8px);
+    padding: 30px 18px;
+  }
+}

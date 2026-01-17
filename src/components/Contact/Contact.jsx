@@ -39,7 +39,7 @@ const Contact = () => {
       />
       <div className={`${styles.contactWrapper} row g-4 mx-3`}>
         <div
-          className={`${styles.contactInfo} col-lg-6 d-flex justify-content-center align-items-center`}
+          className={`${styles.contactInfo} col-xl-6 d-flex justify-content-center align-items-center`}
         >
           <ul className="list-unstyled">
             <li className="d-flex align-items-center mb-4">
@@ -61,7 +61,7 @@ const Contact = () => {
               <img
                 src={mailImg}
                 alt="mail"
-                className="me-3"
+                className="me-5 me-sm-3 "
                 style={{ height: "80px", width: "auto" }}
               />
               <a
@@ -78,7 +78,7 @@ const Contact = () => {
             </li>
           </ul>
         </div>
-        <div className={`${styles.contactForm} col-lg-6 p-4`}>
+        <div className={`${styles.contactForm} col-xl-6 p-sm-4`}>
           <h2 className="display-5 fw-bold mb-3" style={{ color: "#f1f1f1" }}>
             Let's <span className={styles.gradientSpan}>connect</span>
           </h2>

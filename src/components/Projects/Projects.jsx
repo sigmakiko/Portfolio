@@ -28,7 +28,10 @@ const Projects = () => {
           />
         </div>
 
-        <motion.div className={styles.horizontalContainer} style={{ x }}>
+        <motion.div
+          className={styles.horizontalContainer}
+          style={{ x: window.innerWidth > 1024 ? x : 0 }}
+        >
           {projectsData.map((project, index) => (
             <motion.div
               key={project.id}

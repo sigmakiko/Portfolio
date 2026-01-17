@@ -1,3 +1,148 @@
+/* Contact Section - Soft Dark / Bento Grid Theme */
+.contact {
+  background-color: #121212;
+  padding: 80px 0;
+}
+
+.contactWrapper {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  backdrop-filter: blur(10px);
+  padding: 50px;
+  position: relative;
+  overflow: hidden;
+}
+
+.contactWrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+      circle at 20% 80%,
+      rgba(0, 255, 255, 0.05) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(138, 43, 226, 0.05) 0%,
+      transparent 50%
+    );
+  pointer-events: none;
+}
+
+.contactInfo {
+  position: relative;
+  z-index: 1;
+}
+
+.contactInfo li {
+  margin-bottom: 30px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+.contactInfo li:hover {
+  border-color: rgba(0, 255, 255, 0.2);
+  transform: translateX(5px);
+}
+
+.contactForm {
+  position: relative;
+  z-index: 1;
+}
+
+.contactForm h2 {
+  color: #f1f1f1 !important;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.contactForm h2 span {
+  background: linear-gradient(135deg, #00ffff 0%, #8a2be2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.contactForm p {
+  color: #c5c6c7;
+  margin-bottom: 30px;
+}
+
+.contactInput {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 12px !important;
+  color: #f1f1f1 !important;
+  padding: 14px 18px !important;
+  transition: all 0.3s ease !important;
+}
+
+.contactInput:focus {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-color: rgba(0, 255, 255, 0.4) !important;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.1) !important;
+  outline: none !important;
+}
+
 .contactInput::placeholder {
-    color: rgb(156 163 166) !important;
+  color: #c5c6c7 !important;
+  opacity: 0.7;
+}
+
+.submitBtn {
+  background: linear-gradient(135deg, #00ffff 0%, #8a2be2 100%);
+  border: none !important;
+  border-radius: 20px !important;
+  color: #121212 !important;
+  font-weight: 700 !important;
+  padding: 14px 30px !important;
+  transition: all 0.3s ease !important;
+}
+
+.submitBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 255, 255, 0.3);
+}
+
+.gradientSpan {
+  background: linear-gradient(135deg, #00ffff 0%, #8a2be2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@media (max-width: 592px) {
+  .contactInfo li {
+    padding: 10px;
+  }
+
+  .contactInfo li img {
+    height: 50px !important;
+  }
+
+  .contactInfo li a {
+    font-size: 15px !important;
+  }
+}
+
+@media (max-width: 415px) {
+  .contactInfo li {
+    padding: 10px;
+  }
+
+  .contactInfo li img {
+    height: 30px !important;
+  }
+
+  .contactInfo li a {
+    font-size: 12px !important;
+  }
 }

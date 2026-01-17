@@ -1,3 +1,102 @@
+/* Navbar - Soft Dark Theme */
 .nav {
-    background-color: #040407 !important;
+  background-color: #121212 !important;
+  background-image: radial-gradient(
+      circle at 15% 20%,
+      rgba(138, 43, 226, 0.08) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 85% 80%,
+      rgba(0, 255, 255, 0.06) 0%,
+
+      transparent 50%
+    );
+  backdrop-filter: blur(10px);
+  padding: 10px 0;
+}
+
+.nav :global(.navbar-brand),
+.nav :global(.nav-link) {
+  color: #f1f1f1 !important;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.nav :global(.nav-link):hover {
+  color: #00ffff !important;
+}
+
+.nav :global(.navbar-toggler) {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.nav :global(.navbar-toggler-icon) {
+  filter: invert(1);
+}
+
+.navContainer {
+  max-width: 1200px !important;
+  margin: 0 auto;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  font-size: 14px;
+}
+
+@media (max-width: 767px) {
+  .navContainer {
+    max-width: fit-content !important;
+    justify-content: center !important;
+    align-items: center !important;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 576px) {
+  .navContainer {
+    max-width: none !important;
+    justify-content: space-around !important;
+  }
+  :global(.navbar-toggler) {
+    display: block !important;
+  }
+
+  :global(.navbar-collapse) {
+    background-image: radial-gradient(
+        circle at 15% 20%,
+        rgba(138, 43, 226, 0.08) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 85% 80%,
+        rgba(0, 255, 255, 0.06) 0%,
+
+        transparent 50%
+      );
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 10px;
+  }
+
+  :global(.navbar-nav) {
+    align-items: center;
+  }
+
+  .burgerBtn {
+    border: none !important; /* إلغاء الإطار تماماً */
+    outline: none !important; /* إلغاء إطار التركيز عند الضغط */
+    box-shadow: none !important; /* إلغاء الظل الافتراضي من بوتستراف */
+  }
+
+  /* استهداف الأيقونة (الشرط) وتغيير لونها للأبيض */
+  .burgerBtn :global(.navbar-toggler-icon) {
+    /* الفلتر ده بيحول أي لون لـ أبيض تماماً */
+    filter: brightness(0) invert(1);
+  }
+
+  /* حركة احترافية: لو حبيت الأيقونة تنور بلون السيان لما تضغط عليها */
+  .burgerBtn:focus {
+    filter: drop-shadow(0 0 5px #00f2ff);
+  }
 }

@@ -1,0 +1,461 @@
+/* Main Section */
+.hubSection {
+  padding: 80px 0;
+  background-color: #121212;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.hubSection::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+      circle at 15% 20%,
+      rgba(138, 43, 226, 0.06) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 85% 80%,
+      rgba(0, 255, 255, 0.04) 0%,
+      transparent 50%
+    );
+  pointer-events: none;
+}
+
+/* Bento Block Base */
+.bentoBlock {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.bentoBlock:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Story Block */
+.storyBlock {
+  padding: 40px;
+  height: 100%;
+  min-height: 380px;
+}
+
+.storyInner {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+  height: 100%;
+}
+
+/* Logo Visual */
+.logoWrapper {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.glowEffect {
+  position: absolute;
+  inset: -15px;
+  background: linear-gradient(
+    135deg,
+    rgba(138, 43, 226, 0.4) 0%,
+    rgba(0, 255, 255, 0.3) 100%
+  );
+  border-radius: 24px;
+  filter: blur(25px);
+  animation: glowPulse 3s ease-in-out infinite;
+  z-index: 0;
+}
+
+@keyframes glowPulse {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+}
+
+.logoBox {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.logoText {
+  font-family: "Geist Sans", "Inter", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #00ffff 0%, #8a2be2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Story Content */
+.storyContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.storyHeader {
+  font-family: "Geist Sans", "Inter", sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  color: #f1f1f1;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.gradientText {
+  background: linear-gradient(135deg, #00ffff 0%, #8a2be2 50%, #ff6b6b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.storyParagraph {
+  font-family: "Geist Sans", "Inter", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #c5c6c7;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  flex: 1;
+}
+
+.storyParagraph strong {
+  color: #00ffff;
+  font-weight: 600;
+}
+
+/* CTA Buttons */
+.ctaButtons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.ctaButton {
+  font-family: "Geist Sans", "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #f1f1f1;
+  background: transparent;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+.ctaButton:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: #00ffff;
+  color: #00ffff;
+  box-shadow: 0 4px 15px rgba(0, 255, 255, 0.15);
+}
+
+/* Stats Column */
+.statsColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: 100%;
+}
+
+.statCard {
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex: 1;
+  cursor: default;
+}
+
+.statCard:hover {
+  border-color: rgba(0, 255, 255, 0.3);
+  box-shadow: 0 8px 25px rgba(0, 255, 255, 0.1);
+}
+
+.statNumber {
+  font-family: "Geist Sans", "Inter", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #00ffff;
+  white-space: nowrap;
+}
+
+.statInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.statLabel {
+  font-family: "Geist Sans", "Inter", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #f1f1f1;
+}
+
+.statDescription {
+  font-family: "Geist Sans", "Inter", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: #c5c6c7;
+  opacity: 0.7;
+}
+
+/* Videos Block */
+.videosBlock {
+  padding: 30px;
+}
+
+.videosHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.videosTitle {
+  font-family: "Geist Sans", "Inter", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #f1f1f1;
+  margin: 0;
+}
+
+.videosBadge {
+  font-family: "Geist Sans", "Inter", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #c5c6c7;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 6px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Video Card */
+.videoCard {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
+  transition: all 0.3s ease;
+}
+
+.videoCard:hover {
+  border-color: rgba(0, 255, 255, 0.4);
+  box-shadow: 0 10px 30px rgba(0, 255, 255, 0.15);
+}
+
+.videoWrapper {
+  position: relative;
+  padding-bottom: 140%;
+  overflow: hidden;
+}
+
+.videoThumbnail {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.videoCard:hover .videoThumbnail {
+  transform: scale(1.05);
+}
+
+.playOverlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.playIcon {
+  font-size: 1.1rem;
+  color: #1a1a2e;
+  margin-left: 3px;
+}
+
+.videoCard:hover .playOverlay {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.8);
+}
+
+.videoLink {
+  position: absolute;
+  inset: 0;
+  text-decoration: none;
+}
+
+.hoverOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(138, 43, 226, 0.95) 0%,
+    rgba(0, 255, 255, 0.9) 100%
+  );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+}
+
+.videoCard:hover .hoverOverlay {
+  opacity: 1;
+}
+
+.videoCaption {
+  font-family: "Geist Sans", "Inter", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.watchLabel {
+  font-family: "Geist Sans", "Inter", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 6px 14px;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .hubSection {
+    padding: 60px 0;
+  }
+
+  .storyBlock {
+    padding: 30px;
+    min-height: auto;
+  }
+
+  .storyInner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .storyHeader {
+    font-size: 1.8rem;
+  }
+
+  .ctaButtons {
+    justify-content: center;
+  }
+
+  .statsColumn {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .statCard {
+    flex: 1 1 calc(50% - 8px);
+    min-width: 150px;
+  }
+}
+
+@media (max-width: 767px) {
+  .hubSection {
+    padding: 40px 0;
+  }
+
+  .storyBlock {
+    padding: 24px;
+  }
+
+  .logoBox {
+    width: 100px;
+    height: 100px;
+  }
+
+  .logoText {
+    font-size: 1.1rem;
+  }
+
+  .storyHeader {
+    font-size: 1.5rem;
+  }
+
+  .storyParagraph {
+    font-size: 0.95rem;
+  }
+
+  .statsColumn {
+    flex-direction: column;
+  }
+
+  .statCard {
+    padding: 18px;
+  }
+
+  .videosBlock {
+    padding: 20px;
+  }
+
+  .videosHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .videoWrapper {
+    padding-bottom: 120%;
+  }
+}
+
+@media (max-width: 576px) {
+  .statCard {
+    flex: 1 1 calc(30% - 8px);
+    padding: 30px 18px;
+  }
+}

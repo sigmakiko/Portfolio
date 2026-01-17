@@ -4,5 +4,22 @@ import About from "./About/About";
 import Projects from "./Projects/Projects";
 import Skills from "./Skills/Skills";
 import Contact from "./Contact/Contact";
+import GitHubActivity from "./GitHubActivity/GitHubActivity";
+import KikoCommunityHub from "./KikoCommunityHub/KikoCommunityHub";
+import SectionHeader from "./SectionHeader/SectionHeader";
+import Preloader from "./Preloader/Preloader";
+import FootballGame from "./FootballGame/FootballGame";
 
-export { Hero, MyNavbar, About, Projects, Skills, Contact };
+export {
+  Hero,
+  MyNavbar,
+  About,
+  Projects,
+  Skills,
+  Contact,
+  GitHubActivity,
+  KikoCommunityHub,
+  SectionHeader,
+  Preloader,
+  FootballGame,
+};

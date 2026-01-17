@@ -1,0 +1,12 @@
+📄 PLACE YOUR CV PDF FILE HERE
+
+Instructions:
+1. Export your CV as a PDF file
+2. Rename it to: Kiko_CV.pdf
+3. Place it in this folder
+
+The download button in the About section will automatically link to:
+/assets/documents/Kiko_CV.pdf
+
+If you want to use a different filename, update line 4 in:
+src/components/CvButton/CvButton.jsx
